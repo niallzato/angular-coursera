@@ -6,33 +6,33 @@
 
   LunchCheckController.$inject = ['$scope'];
   function LunchCheckController($scope) {
-    $scope.list = "g";
-    $scope.message = "one";
+    $scope.list = "";
+    $scope.message = "";
+    $scope.messageClass = "";
 
     $scope.countItems = function () {
       var items = $scope.list.split(',');
       var realItems = 0;
-      console.log(items);
+      //only check real items
       for (var i = 0; i < items.length; i++) {
         if (items[i]) {
           realItems++
         }
       }
-      var amount = items.length;
-      console.log(amount);
-      console.log(realItems);
-      displayMessage(amount)
+      displayMessage(realItems)
     }
 
     function displayMessage(amount) {
       if (amount == 0) {
         $scope.message = "Please enter data first";
+        $scope.messageClass = "warning";
       } else if (amount <= 3) {
         $scope.message = "Enjoy!";
+        $scope.messageClass = "positive";
       } else {
         $scope.message = "Too much!";
+        $scope.messageClass = "positive";
       }
     }
-
   }
 })();

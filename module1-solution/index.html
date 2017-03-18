@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .positive {color: green; border:solid 2px green}
+      .warning {color: red; border:solid 2px red}
     </style>
   </head>
 <body>
@@ -13,19 +15,17 @@
      <h1>Lunch Checker</h1>
 
          <div class="form-group">
+            <!-- not consider empty item a real item -->
              <input id="lunch-menu" type="text"
              ng-model = "list"
-             ng-keyup = "countItems();"
              placeholder="list comma separated dishes you usually have for lunch"
              class="form-control">
          </div>
          <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
+             <button ng-click = "countItems();" class="btn btn-default">Check If Too Much</button>
          </div>
-         <div class="form-group message">
+         <div class="form-group message {{messageClass}}">
            {{message}}
-           <br>
-           {{list}}
          </div>
    </div>
    <script src="angular.min.js"></script>
