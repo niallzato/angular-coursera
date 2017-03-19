@@ -15,8 +15,8 @@
       var realItems = 0;
       //only check real items
       for (var i = 0; i < items.length; i++) {
-        if (items[i]) {
-          realItems++
+        if (items[i].trim()) {
+          realItems++;
         }
       }
       displayMessage(realItems)
