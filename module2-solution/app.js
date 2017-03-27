@@ -27,7 +27,7 @@
   function ShoppingListCheckOffService() {
     var service = this;
     // List of items to buy and bought
-    var toBuyItems = [{ name: "cookies", quantity: 10 },{ name: "chips", quantity: 4 },{ name: "drinks", quantity: 2 },{ name: "pizzas", quantity: 5 }];
+    var toBuyItems = [{ name: "cookies", quantity: 10 },{ name: "chips", quantity: 4 },{ name: "drinks", quantity: 2 },{ name: "pizzas", quantity: 5 },{ name: "plates", quantity: 5 }];
     var boughtItems = [];
 
     //buy the item move form one array to another
