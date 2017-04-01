@@ -9,24 +9,19 @@
 <body>
    <div class="container" ng-controller="NarrowItDownController as narrow">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
-
+    <div>
     <div class="form-group">
       <input type="text" placeholder="search term" class="form-control" ng-model="narrow.search">
     </div>
     <div class="form-group narrow-button">
       <button ng-click="narrow.narrowMenu()" class="btn btn-primary">Narrow It Down For Me!</button>
     </div>
-
-    <li ng-repeat="category in menu.categories">
-      (<a href="" ng-click="menu.logMenuItems(category.short_name);">{{ category.short_name }}</a>)
-      {{ category.name }}
-    </li>
-
-
-      <div>ffff  {{narrow.found}}</div>
-
+    </div>
+    <!-- <ol style="float:left;">
+      <li ng-repeat="item in narrow.found track by $index">{{item.name}} <button ng-click="narrow.removeItem($index)" class="btn btn-primary">Remove Me!</button></li>
+    </ol> -->
     <!-- found-items should be implemented as a component -->
-    <found-items found-items="...." on-remove="...."></found-items>
+    <found-items on-remove="...."></found-items>
   </div>
 
 </body>
