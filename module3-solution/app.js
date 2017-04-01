@@ -9,14 +9,16 @@
   NarrowItDownController.$inject = ['MenuSearchService'];
   function NarrowItDownController(MenuSearchService) {
     var narrow = this;
-    narrow.search = "f";
+    narrow.search = "";
 
-    var promise = MenuSearchService.getMatchedMenuItems(narrow.search)
-    promise.then(function (response) {
-      narrow.found = response;
-    })
+    narrow.narrowMenu = function () {
+      narrow.found = 'fdfddf';
+      var promise = MenuSearchService.getMatchedMenuItems(narrow.search)
+      promise.then(function (response) {
+        narrow.found = response;
+      })
+    };
 
-    console.log(narrow.found);
   }
 
   MenuSearchService.$inject = ['$http', 'ApiPath'];
@@ -29,7 +31,17 @@
         method: "GET",
         url: ApiPath
       }).then(function (response) {
-        return response.data;
+        var foundItems = [];
+
+        for (var i = 0; i < response.data['menu_items'].length; i++) {
+          var item = response.data['menu_items'][i];
+          if (item.name.toLowerCase().indexOf(search) !== -1) {
+            foundItems.push(response.data['menu_items'][i]);
+          }
+        }
+        //var foundItems = response.data['menu_items'][0].name;
+
+        return foundItems;
       });
     };
 
