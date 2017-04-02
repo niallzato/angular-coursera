@@ -1,3 +1,7 @@
-<ol>
-    <li ng-repeat="item in narrow.found track by $index">{{item.name}} <button ng-click="narrow.removeItem($index)" class="btn btn-primary">Remove Me!</button></li>
-</ol>
+<ul>
+    <li ng-repeat="item in narrow.found track by $index">
+      {{item.name}}, {{item.short_name}}, {{item.description}}
+      <button ng-click="narrow.removeItem($index)" class="btn btn-primary">Don't want this one!</button>
+    </li>
+    <div ng-if="narrow.warningAlert()" class="emptyMessage">Nothing found</div>
+</ul>
