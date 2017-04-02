@@ -12,7 +12,7 @@
     var ddo = {
       templateUrl: 'foundItems.html',
       scope: {
-        narrow: '<',
+        found: '<',
         removeItem: '&'
       },
       controller: NarrowItDownController,
@@ -48,6 +48,7 @@
     // List of items to buy and bought
 
     service.getMatchedMenuItems = function (search) {
+    found = [];
     return $http({
         method: "GET",
         url: ApiPath
