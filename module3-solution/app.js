@@ -27,6 +27,7 @@
   NarrowItDownController.$inject = ['MenuSearchService'];
   function NarrowItDownController(MenuSearchService) {
     var narrow = this;
+
     var searched = false;
     narrow.search = "";
     narrow.found = [];
@@ -40,6 +41,10 @@
           narrow.found = response;
           searched = true;
         })
+      }
+      //items returned then do a blank search
+      else if(searched == true && !narrow.search.length) {
+        narrow.found = [];
       }
       else{
         searched = true;
