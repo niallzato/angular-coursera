@@ -1,0 +1,7 @@
+<h1>Items by Category</h1>
+<strong>{{itemsCtrl.cat}}</strong>
+<ul>
+  <li ng-repeat="item in itemsCtrl.items">
+        [{{ item.short_name }}] {{ item.name }}
+  </li>
+</ul>
