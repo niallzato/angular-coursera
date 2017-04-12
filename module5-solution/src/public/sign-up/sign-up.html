@@ -1,0 +1,59 @@
+<div class="container" >
+
+  <form name='regForm' novalidate>
+    <input type="text" name="firstname" placeholder="First name"
+      required
+      minlength="4"
+      ng-maxlength="10">
+
+      <span
+        ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+        Username must be at least 4 characters long
+      </span>
+      <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
+        Username must not be longer than 10 characters
+      </span>
+      <br>
+
+      <input type="text" name="lastname" placeholder="Last name"
+        required
+        minlength="4"
+        ng-maxlength="10">
+
+        <span
+          ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+          Username must be at least 4 characters long
+        </span>
+        <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
+          Username must not be longer than 10 characters
+        </span>
+        <br>
+
+
+    <input type="email" name="email" placeholder="Email"
+      required>
+      <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+        Must be a valid email address: handle@domain format
+      </span>
+      <br>
+
+    <input type="text" name="phone" placeholder="Phone ###-###-####"
+      pattern="">
+      <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+        Phone must be in the format ###-###-####.
+      </span>
+      <br>
+
+      <input type="text" name="favourite" placeholder="Favourite ID">
+        <br>
+
+    <button
+      ng-disabled="regForm.$invalid"
+      ng-click="signUpCtrl.submit()">Submit</button>
+
+      <div style="margin-top: 10px;">
+        Form valid? {{ regForm.$valid }}
+      </div>
+  </form>
+
+</div>
