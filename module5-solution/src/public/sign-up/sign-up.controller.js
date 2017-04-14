@@ -8,15 +8,17 @@ SignUpController.$inject = ['MenuService'];
 function SignUpController(MenuService) {
   var reg = this;
 
+  reg.valid = '';
   reg.submit = function () {
 
     if (regForm.favourite.value) {
       MenuService.getItem(regForm.favourite.value).then(function (response) {
-        MenuService.setFav(regForm);
-        console.log(response);
+        MenuService.setFav(regForm.favourite.value);
+        reg.valid = true;
       })
       .catch(function (errorResponse){
-
+        MenuService.setFav('Not set');
+        reg.valid = false;
       })
     }
 
