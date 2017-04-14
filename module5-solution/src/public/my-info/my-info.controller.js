@@ -4,11 +4,11 @@
 angular.module('public')
 .controller('MyInfoController', MyInfoController);
 
-MyInfoController.$inject = ['MenuService'];
-function MyInfoController(MenuService) {
+MyInfoController.$inject = ['MenuService', 'ApiPath'];
+function MyInfoController(MenuService, ApiPath) {
   var info = this;
 
-info.fav2 = 'jfdjdfhjdfhjdfjdfdhjf';
+  info.path= ApiPath;
   info.fav = MenuService.getFav();
 }
 
