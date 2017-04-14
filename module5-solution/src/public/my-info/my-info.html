@@ -1,5 +1,10 @@
-<div class="container" >
+<div class="container" ng-if="myInfoCtrl.fav">
+name:   {{myInfoCtrl.fav.name}} <br>
+description:   {{myInfoCtrl.fav.description}} <br>
+img:   <img class="img-responsive" width="250" height="150" ng-src="https://nbrenn-course5.herokuapp.com//images/{{myInfoCtrl.fav.short_name}}.jpg" alt="{{myInfoCtrl.fav.name}}">
+</div>
 
-stuff:   {{myInfoCtrl.fav}}
-
+<div class="contanier" ng-if="myInfoCtrl.fav === false">
+  Not Signed Up Yet. <br>
+  <a ui-sref="public.signup"> Sign up Now! </a>
 </div>
